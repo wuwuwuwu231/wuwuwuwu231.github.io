@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>字符串 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy 左-&amp;gt;右遍历，右-&amp;gt;左修改 123456789101112131415161718192021222324252627class Solution &amp;#123;public:	void replaceSpace(char *str,int l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串">
+<meta property="og:url" content="http://yoursite.com/2020/04/12/字符串/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy 左-&amp;gt;右遍历，右-&amp;gt;左修改 123456789101112131415161718192021222324252627class Solution &amp;#123;public:	void replaceSpace(char *str,int l">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-12T06:50:22.296Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="字符串">
+<meta name="twitter:description" content="请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy 左-&amp;gt;右遍历，右-&amp;gt;左修改 123456789101112131415161718192021222324252627class Solution &amp;#123;public:	void replaceSpace(char *str,int l">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-字符串" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/12/字符串/" class="article-date">
+  <time datetime="2020-04-12T05:03:01.000Z" itemprop="datePublished">2020-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>►<a class="article-category-link" href="/categories/工作/数据结构/">数据结构</a>►<a class="article-category-link" href="/categories/工作/数据结构/字符串/">字符串</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      字符串
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="请实现一个函数，将一个字符串中的每个空格替换成“-20”。例如，当字符串为We-Are-Happy-则经过替换之后的字符串为We-20Are-20Happy"><a href="#请实现一个函数，将一个字符串中的每个空格替换成“-20”。例如，当字符串为We-Are-Happy-则经过替换之后的字符串为We-20Are-20Happy" class="headerlink" title="请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy"></a>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy</h3><details>
+<summary>左->右遍历，右->左修改</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	void replaceSpace(char *str,int length) &#123;</span><br><span class="line">	</span><br><span class="line">        int spaceNum = 0;</span><br><span class="line">        </span><br><span class="line">        for(int i=0;i&lt;=length;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(str[i] == &apos; &apos;) spaceNum++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int newLength = length + spaceNum * 2;</span><br><span class="line">        </span><br><span class="line">        for(int i=length;i&gt;=0;--i)</span><br><span class="line">        &#123;</span><br><span class="line">            if(str[i] == &apos; &apos;)</span><br><span class="line">            &#123;</span><br><span class="line">                str[newLength--] = &apos;0&apos;;</span><br><span class="line">                str[newLength--] = &apos;2&apos;;</span><br><span class="line">                str[newLength--] = &apos;%&apos;;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                str[newLength--] = str[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+    <summary>c++库函数</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	void replaceSpace(char *str,int length) &#123;    </span><br><span class="line">        //char* -&gt; string </span><br><span class="line">        string s(str);//s = str;</span><br><span class="line">        int i=0;</span><br><span class="line">        while((i=s.find(&apos; &apos;,i))&gt;-1)&#123;</span><br><span class="line">            s.erase(i,1);</span><br><span class="line">            s.insert(i,&quot;%20&quot;);</span><br><span class="line">             </span><br><span class="line">        &#125;</span><br><span class="line">        //string -&gt; char*</span><br><span class="line">        //auto ret=s.c_str();</span><br><span class="line">        strcpy(str,s.c_str());</span><br><span class="line">        //str = s.c_str();错误s.c_str()返回的是临时指针</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</details>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/12/字符串/" data-id="ck9186e8y000e80tsajl7geng" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/12/链表/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          链表
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/11/查找/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">查找</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/">Qt</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/tcp-udp/">tcp/udp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/窗体设计/">窗体设计</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/">数据结构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/字符串/">字符串</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/查找/">查找</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/链表/">链表</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/练习/">练习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/">错误合集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/c/">c++</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/15/tcp/">tcp/udp</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/14/c++错误/">c++错误</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/12/链表/">链表</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/12/字符串/">字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/11/查找/">查找</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

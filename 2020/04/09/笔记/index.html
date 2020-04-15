@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="子网123456789以下哪个ip不和10.11.12.91/28处于同一个子网前28位为网络号，故子网掩码为11111111.11111111. 11111111. 11110000（255.255.255.240）。256-240=16，有16个子网，每一个子网段大小范围是16。10.11.12.91/28中91可以表示为：01011011，前四位为网络号，后四位为主机号，故包含10.11.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记">
+<meta property="og:url" content="http://yoursite.com/2020/04/09/笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="子网123456789以下哪个ip不和10.11.12.91/28处于同一个子网前28位为网络号，故子网掩码为11111111.11111111. 11111111. 11110000（255.255.255.240）。256-240=16，有16个子网，每一个子网段大小范围是16。10.11.12.91/28中91可以表示为：01011011，前四位为网络号，后四位为主机号，故包含10.11.1">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/resources/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91.png">
+<meta property="og:updated_time" content="2020-04-09T09:52:26.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记">
+<meta name="twitter:description" content="子网123456789以下哪个ip不和10.11.12.91/28处于同一个子网前28位为网络号，故子网掩码为11111111.11111111. 11111111. 11110000（255.255.255.240）。256-240=16，有16个子网，每一个子网段大小范围是16。10.11.12.91/28中91可以表示为：01011011，前四位为网络号，后四位为主机号，故包含10.11.1">
+<meta name="twitter:image" content="http://yoursite.com/resources/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/09/笔记/" class="article-date">
+  <time datetime="2020-04-09T06:56:28.000Z" itemprop="datePublished">2020-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>►<a class="article-category-link" href="/categories/工作/数据结构/">数据结构</a>►<a class="article-category-link" href="/categories/工作/数据结构/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="子网"><a href="#子网" class="headerlink" title="子网"></a>子网</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">以下哪个ip不和10.11.12.91/28处于同一个子网</span><br><span class="line"></span><br><span class="line">前28位为网络号，故子网掩码为11111111.11111111. 11111111. 11110000（255.255.255.240）。</span><br><span class="line"></span><br><span class="line">256-240=16，有16个子网，每一个子网段大小范围是16。</span><br><span class="line">10.11.12.91/28中91可以表示为：01011011，前四位为网络号，后四位为主机号，</span><br><span class="line">故包含10.11.12.91的子网范围是：01010000~01011111（80~95）。</span><br><span class="line">去掉第一个和最后一个，和 10.11.12.91/28在一个网段的范围为： 10.11.12.81/28~ 10.11.12.94/28。</span><br><span class="line">答案选择D。</span><br></pre></td></tr></table></figure>
+
+<h3 id="进程线程"><a href="#进程线程" class="headerlink" title="进程线程"></a>进程线程</h3><p>线程使用共同的父进程的地址空间 而子进程会会拥有自己的独立地址空间 </p>
+<details>
+<summary>fork()函数</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">在语句fpid=fork()之前，只有一个进程在执行这段代码，但在这条语句之后，就变成两个进程在执行了，这两个进程的几乎完全相同，将要执行的下一条语句都是if(fpid&lt;0)……</span><br><span class="line">    为什么两个进程的fpid不同呢，这与fork函数的特性有关。fork调用的一个奇妙之处就是它仅仅被调用一次，却能够返回两次，它可能有三种不同的返回值：</span><br><span class="line">    1）在父进程中，fork返回新创建子进程的进程ID；</span><br><span class="line">    2）在子进程中，fork返回0；</span><br><span class="line">    3）如果出现错误，fork返回一个负值；</span><br><span class="line"></span><br><span class="line">    在fork函数执行完毕后，如果创建新进程成功，则出现两个进程，一个是子进程，一个是父进程。在子进程中，fork函数返回0，在父进程中，fork返回新创建子进程的进程ID。我们可以通过fork返回的值来判断当前进程是子进程还是父进程。</span><br><span class="line"></span><br><span class="line">    引用一位网友的话来解释fpid的值为什么在父子进程中不同。“其实就相当于链表，进程形成了链表，父进程的fpid(p 意味point)指向子进程的进程id, 因为子进程没有子进程，所以其fpid为0.</span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<h3 id="内存占用"><a href="#内存占用" class="headerlink" title="内存占用"></a>内存占用</h3><details>
+<summary>柔性数组，指针，sizeof</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">柔性数组：</span><br><span class="line">把单一元素的数组放在一个struct的尾端，使得每个struct对象可以拥有可变大小的数组。</span><br><span class="line">开始题目中的char data[0] 或写成char data[]，即为柔性数组；</span><br><span class="line">data不占用struct的空间，只是作为一个符号地址存在。 因此sizeof的值是两个指针所占字节，即4+4 = 8字节。</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+<summary>内存对齐</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">在x86系统下,sizeof如下结构体的值是多少?</span><br><span class="line"></span><br><span class="line">struct&#123; </span><br><span class="line">char a[10];</span><br><span class="line">int b;</span><br><span class="line">short c[3];&#125;</span><br><span class="line"></span><br><span class="line">内存对齐：4个字节对齐</span><br><span class="line">int : 4字节</span><br><span class="line">char : 1字节</span><br><span class="line">short : 2字节</span><br><span class="line"></span><br><span class="line">0 -- 9 char a[10]</span><br><span class="line">10,11 内存对齐留空</span><br><span class="line">12-15 int b</span><br><span class="line">16-21 short c[3]</span><br><span class="line">22,23 内存对齐留空</span><br><span class="line"></span><br><span class="line">0--23 = 24个字节</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="网络数据传输"><a href="#网络数据传输" class="headerlink" title="网络数据传输"></a>网络数据传输</h3><details>
+<summary>大端存储，小端存储</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">假设在x86平台上,有一个int型变量,在内存中的内部由低到高分别是:0x12,0x34,0x56,0x78当通过网络发送该数据时,正确的发送顺序是()</span><br><span class="line">0x12,0x34,0x56,0x78</span><br><span class="line">0x78,0x56,0x34,0x12</span><br><span class="line">0x34,0x12,0x78,0x56</span><br><span class="line">0x56,0x78,0x12,0x34</span><br><span class="line">正确答案：B</span><br><span class="line"></span><br><span class="line">X86 系列 CPU都是 little－endian 的，所以int 型变量值为 0x78563412, 网络发送数据时，</span><br><span class="line">采用大段，先发送高位再发送低位</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h4><p><img src="/resources/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91.png" alt></p>
+<h4 id="二叉树遍历"><a href="#二叉树遍历" class="headerlink" title="二叉树遍历"></a>二叉树遍历</h4><details>
+<summary>先序遍历与后序遍历</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">一棵非空的二叉树的先序遍历序列与后序遍历序列正好相反，则该二叉树一定满足?</span><br><span class="line"></span><br><span class="line">正确答案 : C</span><br><span class="line">A所有的结点均无左孩子 </span><br><span class="line">B所有的结点均无右孩子 </span><br><span class="line">C只有一个叶子结点</span><br><span class="line"></span><br><span class="line">C包括了A和B的情况</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>HTTP协议通常承载于TCP协议之上，有时也承载 于TLS（ 安全传输层协议 ）或 SSL（ 安全套接层协议Secure Sockets Layer ）协议层之上，<br>这个时候，就成了我们常说的HTTPS</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/09/笔记/" data-id="ck9186e93000k80ts7h1uorha" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/11/查找/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          查找
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/07/可视化数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">可视化数据库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/">Qt</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/tcp-udp/">tcp/udp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/窗体设计/">窗体设计</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/">数据结构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/字符串/">字符串</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/查找/">查找</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/链表/">链表</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/练习/">练习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/">错误合集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/c/">c++</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/15/tcp/">tcp/udp</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/14/c++错误/">c++错误</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/12/链表/">链表</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/12/字符串/">字符串</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/11/查找/">查找</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
