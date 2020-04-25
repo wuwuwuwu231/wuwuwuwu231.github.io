@@ -62,6 +62,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/25/布局/" class="article-date">
+  <time datetime="2020-04-25T05:52:12.000Z" itemprop="datePublished">2020-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>►<a class="article-category-link" href="/categories/工作/Qt/">Qt</a>►<a class="article-category-link" href="/categories/工作/Qt/窗体设计/">窗体设计</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/25/布局/">布局</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="局部布局，整体布局"><a href="#局部布局，整体布局" class="headerlink" title="局部布局，整体布局"></a>局部布局，整体布局</h3><p><img src="/resources/%E5%B1%80%E9%83%A8%EF%BC%8C%E6%95%B4%E4%BD%93%E5%B8%83%E5%B1%80.png" alt="局部，整体布局"></p>
+<h3 id="弹簧"><a href="#弹簧" class="headerlink" title="弹簧"></a>弹簧</h3><p><img src="/resources/%E5%BC%B9%E7%B0%A7.png" alt="弹簧"></p>
+<h3 id="分裂器"><a href="#分裂器" class="headerlink" title="分裂器"></a>分裂器</h3><p><img src="/resources/%E5%88%86%E8%A3%82%E5%99%A8.png" alt="分裂器"></p>
+<h3 id="布局，尺寸策略"><a href="#布局，尺寸策略" class="headerlink" title="布局，尺寸策略"></a>布局，尺寸策略</h3><p><img src="/resources/%E5%B8%83%E5%B1%80.png" alt="布局"><br><img src="/resources/%E5%B0%BA%E5%AF%B8%E7%AD%96%E7%95%A5.png" alt="尺寸策略"></p>
+<h3 id="多使用widget容器，从局部到整体"><a href="#多使用widget容器，从局部到整体" class="headerlink" title="多使用widget容器，从局部到整体"></a>多使用widget容器，从局部到整体</h3><h3 id="label-的-pimax-可以直接选择资源文件或电脑文件"><a href="#label-的-pimax-可以直接选择资源文件或电脑文件" class="headerlink" title="label 的 pimax 可以直接选择资源文件或电脑文件"></a>label 的 pimax 可以直接选择资源文件或电脑文件</h3><h3 id="多使用弹簧，布局layout属性，尺寸策略控制最大最小值"><a href="#多使用弹簧，布局layout属性，尺寸策略控制最大最小值" class="headerlink" title="多使用弹簧，布局layout属性，尺寸策略控制最大最小值"></a>多使用弹簧，布局layout属性，尺寸策略控制最大最小值</h3><h3 id="自定义控件"><a href="#自定义控件" class="headerlink" title="自定义控件"></a>自定义控件</h3><p>右键项目-&gt;add new -&gt; c++类-&gt; base class选择QWidget<br><img src="/resources/%E5%8F%B3%E9%94%AE%E6%8F%90%E5%8D%87%E4%B8%BA.png" alt="右键提升为"></p>
+<details>
+    <summary>构造函数</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;smallwidget.h&quot;</span><br><span class="line"></span><br><span class="line">//相关头文件</span><br><span class="line">#include&lt;QSpinBox&gt;</span><br><span class="line">#include&lt;QSlider&gt;</span><br><span class="line">#include&lt;QHBoxLayout&gt;</span><br><span class="line"></span><br><span class="line">SmallWidget::SmallWidget(QWidget *parent) : QWidget(parent)</span><br><span class="line">&#123;</span><br><span class="line">    QSpinBox *spin = new QSpinBox(this);</span><br><span class="line">    QSlider *slider = new QSlider(Qt::Horizontal,this);//水平</span><br><span class="line"></span><br><span class="line">    //添加控件到布局</span><br><span class="line">    QHBoxLayout *hLayout = new QHBoxLayout(this);//不写this则要写setLayout(hLayout);</span><br><span class="line">    hLayout-&gt;addWidget(spin);</span><br><span class="line">    hLayout-&gt;addWidget(slider);</span><br><span class="line">    //setLayout(hLayout);</span><br><span class="line"></span><br><span class="line">    //valueChanged函数有重载，用static_cast函数强制类型转换</span><br><span class="line">    connect(spin, static_cast&lt;void (QSpinBox::*)(int)&gt;(&amp;QSpinBox::valueChanged),</span><br><span class="line">            slider,</span><br><span class="line">            &amp;QSlider::setValue</span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    connect(slider, &amp;QSlider::valueChanged,</span><br><span class="line">            spin,</span><br><span class="line">            &amp;QSpinBox::setValue</span><br><span class="line">            );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/25/布局/" data-id="ck9g35azf000h94ts9cb1vqb6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tcp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/15/tcp/" class="article-date">
@@ -120,12 +169,12 @@
 
 </details>
 
-<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><p><img src="/resources/linux%E4%B8%8Budp.png" alt="linux下tcp"><br><img src="/resources/Qt%E4%B8%8Budp.png" alt="Qt下tcp"></p>
+<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><p><img src="/resources/linux%E4%B8%8Budp.png" alt="linux下udp"><br><img src="/resources/Qt%E4%B8%8Budp.png" alt="Qt下udp"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/15/tcp/" data-id="ck9186e8t000680ts5szp4odv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/15/tcp/" data-id="ck9g35azb000c94tsmfzwtwsr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/14/c++错误/" data-id="ck9186e8n000280tsebzlqb4r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/14/c++错误/" data-id="ck9g35az0000294tssvaesqsl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/12/链表/" data-id="ck9186e97000n80ts8q0pfxuf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/12/链表/" data-id="ck9g35azj000o94tsknngy1xn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/12/字符串/" data-id="ck9186e8y000e80tsajl7geng" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/12/字符串/" data-id="ck9g35aze000g94ts21b0obia" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/11/查找/" data-id="ck9186e95000l80tss6ljsx1l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/11/查找/" data-id="ck9g35azj000n94ts0fx52tvr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/09/笔记/" data-id="ck9186e93000k80ts7h1uorha" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/09/笔记/" data-id="ck9g35azh000l94tsqxw67ibz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,7 +508,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/07/可视化数据库/" data-id="ck9186e91000g80tsm0haxnfe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/07/可视化数据库/" data-id="ck9g35azc000e94tsozafkher" class="article-share-link">Share</a>
       
       
     </footer>
@@ -469,9 +518,9 @@
 
 
   
-    <article id="post-ui" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-常用控件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/04/07/ui/" class="article-date">
+    <a href="/2020/04/07/常用控件/" class="article-date">
   <time datetime="2020-04-07T05:11:04.000Z" itemprop="datePublished">2020-04-07</time>
 </a>
     
@@ -487,7 +536,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/07/ui/">ui</a>
+      <a class="article-title" href="/2020/04/07/常用控件/">常用控件</a>
     </h1>
   
 
@@ -495,7 +544,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="设计器的使用（勾选创建界面选项）：看视频"><a href="#设计器的使用（勾选创建界面选项）：看视频" class="headerlink" title="设计器的使用（勾选创建界面选项）：看视频"></a>设计器的使用（勾选创建界面选项）：看视频</h3><p><a href="/resources/QtCreator中ui文件和Qt代码关系.pdf">资料链接</a></p>
+        <h3 id="设计器的使用（勾选创建界面选项）：看视频"><a href="#设计器的使用（勾选创建界面选项）：看视频" class="headerlink" title="设计器的使用（勾选创建界面选项）：看视频"></a>设计器的使用（勾选创建界面选项）：看视频</h3><p><a href="/resources/QtCreator中ui文件和Qt代码关系.pdf">QtCreator中ui文件和Qt代码关系</a></p>
 <details>
     <summary>用代码修改控件</summary>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MainWindow::MainWindow(QWidget *parent) :</span><br><span class="line">    QMainWindow(parent),</span><br><span class="line">    ui(new Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);</span><br><span class="line"></span><br><span class="line">    ui-&gt;pushButton-&gt;setText(&quot;123&quot;);</span><br><span class="line"></span><br><span class="line">    connect(ui-&gt;pushButton,&amp;QPushButton::clicked,this,&amp;MainWindow::close);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -527,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/07/ui/" data-id="ck9186e8v000980tsw8rrmwec" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/07/常用控件/" data-id="ck9g35azg000k94tsbsu64tu8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -537,9 +586,9 @@
 
 
   
-    <article id="post-窗口控件" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-各种栏及对话框" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/04/07/窗口控件/" class="article-date">
+    <a href="/2020/04/07/各种栏及对话框/" class="article-date">
   <time datetime="2020-04-06T16:29:41.000Z" itemprop="datePublished">2020-04-07</time>
 </a>
     
@@ -555,7 +604,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/07/窗口控件/">窗口控件 </a>
+      <a class="article-title" href="/2020/04/07/各种栏及对话框/">各种栏及对话框 </a>
     </h1>
   
 
@@ -605,80 +654,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/07/窗口控件/" data-id="ck9186e92000h80ts3xc0hyty" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-qt-database" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/06/qt-database/" class="article-date">
-  <time datetime="2020-04-06T08:39:09.000Z" itemprop="datePublished">2020-04-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/工作/">工作</a>►<a class="article-category-link" href="/categories/工作/Qt/">Qt</a>►<a class="article-category-link" href="/categories/工作/Qt/数据库/">数据库</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/06/qt-database/">qt database</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <details>
-    <summary>查看支持的数据库</summary>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;widget.h&quot;</span><br><span class="line">#include &quot;ui_widget.h&quot;</span><br><span class="line">#include &lt;QDebug&gt;</span><br><span class="line"></span><br><span class="line">//sql头文件,先编译头文件QT       += core gui sql</span><br><span class="line">#include &lt;QSqlDatabase&gt;</span><br><span class="line"></span><br><span class="line">Widget::Widget(QWidget *parent)</span><br><span class="line">    : QWidget(parent)</span><br><span class="line">    , ui(new Ui::Widget)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    //头文件QT       += core gui sql</span><br><span class="line">    //打印Qt支持的数据库驱动</span><br><span class="line"></span><br><span class="line">    qDebug() &lt;&lt; QSqlDatabase::drivers();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Widget::~Widget()</span><br><span class="line">&#123;</span><br><span class="line">    delete ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</details>
-
-<details>
-    <summary>连接数据库</summary>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//添加mysql数据库</span><br><span class="line">QSqlDatabase db = QSqlDatabase::addDatabase(&quot;QMYSQL&quot;);</span><br><span class="line">//连接数据库,服务器ip</span><br><span class="line">db.setHostName(&quot;127.0.0.1&quot;);</span><br><span class="line">db.setUserName(&quot;root&quot;);</span><br><span class="line">db.setPassword(&quot;root&quot;);</span><br><span class="line">db.setDatabaseName(&quot;test01&quot;);</span><br><span class="line">//打开数据库,提示信息#include&lt;QMessageBox&gt;</span><br><span class="line">if(!db.open())</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,db.lastError().text());</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</details>
-
-
-<details>
-    <summary>数据库插入数据</summary>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">    //#include &lt;QSqlQuery&gt;</span><br><span class="line">    QSqlQuery query;</span><br><span class="line">    query.exec(&quot;insert into brand(factory,name,price,sum, sell, last) values(&apos;一汽大众&apos;, &apos;奥迪A6&apos;, 36, 50, 8, 42);&quot;);</span><br><span class="line"></span><br><span class="line">    //批量插入</span><br><span class="line">    //odbc风格</span><br><span class="line">    //预处理语句</span><br><span class="line">    //?相当于占位符</span><br><span class="line">    query.prepare(&quot;insert into brand(factory,name,price,sum, sell, last) values(?,?,?,?,?,?);&quot;);</span><br><span class="line">    //给字段设置内容 list</span><br><span class="line">    //#include &lt;QVariantList&gt;泛型</span><br><span class="line">    QVariantList factoryList;</span><br><span class="line">    factoryList &lt;&lt; &quot;aa&quot; &lt;&lt; &quot;bb&quot; &lt;&lt; &quot;cc&quot;;</span><br><span class="line">    QVariantList nameList;</span><br><span class="line">    nameList &lt;&lt; &quot;aa&quot; &lt;&lt; &quot;bb&quot; &lt;&lt; &quot;cc&quot;;</span><br><span class="line">    QVariantList priceList;</span><br><span class="line">    priceList &lt;&lt; 1 &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">    QVariantList sumList;</span><br><span class="line">    sumList &lt;&lt; 1 &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">    QVariantList sellList;</span><br><span class="line">    sellList &lt;&lt; 1 &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">    QVariantList lastList;</span><br><span class="line">    lastList &lt;&lt; &quot;222222&quot; &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">    //绑定值,一定要按顺序绑定</span><br><span class="line">    query.addBindValue(factoryList);</span><br><span class="line">    query.addBindValue(nameList);</span><br><span class="line">    query.addBindValue(priceList);</span><br><span class="line">    query.addBindValue(sumList);</span><br><span class="line">    query.addBindValue(sellList);</span><br><span class="line">    query.addBindValue(lastList);</span><br><span class="line">    //执行预处理命令</span><br><span class="line">    query.execBatch();</span><br><span class="line">    </span><br><span class="line">//    //oracle风格?-&gt;:+自定义名字</span><br><span class="line">//    query.prepare(&quot;insert into brand(factory,name,price,sum, sell, last) values(:a,:b,...);&quot;);</span><br><span class="line">//    //给字段设置内容 list</span><br><span class="line">//    //#include &lt;QVariantList&gt;泛型</span><br><span class="line">//    QVariantList factoryList;</span><br><span class="line">//    factoryList &lt;&lt; &quot;aa&quot; &lt;&lt; &quot;bb&quot; &lt;&lt; &quot;cc&quot;;</span><br><span class="line">//    QVariantList nameList;</span><br><span class="line">//    nameList &lt;&lt; &quot;aa&quot; &lt;&lt; &quot;bb&quot; &lt;&lt; &quot;cc&quot;;</span><br><span class="line">//    QVariantList priceList;</span><br><span class="line">//    priceList &lt;&lt; 1 &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">//    QVariantList sumList;</span><br><span class="line">//    sumList &lt;&lt; 1 &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">//    QVariantList sellList;</span><br><span class="line">//    sellList &lt;&lt; 1 &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">//    QVariantList lastList;</span><br><span class="line">//    lastList &lt;&lt; &quot;222222&quot; &lt;&lt; 1 &lt;&lt; 1;</span><br><span class="line">//    //绑定值,可以不按顺序绑定</span><br><span class="line">//    query.bindValue(&quot;:a&quot;,nameList);</span><br><span class="line">//    ......</span><br><span class="line">//    //执行预处理命令</span><br><span class="line">//    query.execBatch();</span><br></pre></td></tr></table></figure>
-
-</details>
-
-<details>
-    <summary>删除，遍历</summary>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">//右键按钮，转到槽</span><br><span class="line">//删除功能</span><br><span class="line">void Widget::on_delButton_clicked()</span><br><span class="line">&#123;</span><br><span class="line">   //获取行编辑内容</span><br><span class="line">   QString name = ui-&gt;lineEdit-&gt;text();</span><br><span class="line"></span><br><span class="line">   QString str = QString(&quot;delete from brand where name = &apos;%1&apos;&quot;).arg(name);</span><br><span class="line"></span><br><span class="line">   //开启一个事务，commit以后数据库才会被修改</span><br><span class="line">   QSqlDatabase::database().transaction();</span><br><span class="line">   QSqlQuery query;</span><br><span class="line">   query.exec(str);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">//确定删除</span><br><span class="line">void Widget::on_sureButton_clicked()</span><br><span class="line">&#123;</span><br><span class="line">    QSqlDatabase::database().commit();</span><br><span class="line">&#125;</span><br><span class="line">//撤销，query的操作被撤销</span><br><span class="line">void Widget::on_cancelButton_clicked()</span><br><span class="line">&#123;</span><br><span class="line">    //回滚，撤销</span><br><span class="line">    QSqlDatabase::database().rollback();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    query.exec(&quot;select * from brand&quot;);</span><br><span class="line">    while(query.next())//行遍历</span><br><span class="line">    &#123;</span><br><span class="line">        //取出当前行,不包括第一行（id,...）</span><br><span class="line">        qDebug() &lt;&lt; query.value(0).toInt()//第0列</span><br><span class="line">                 &lt;&lt; query.value(1).toString()//第1列</span><br><span class="line">                 &lt;&lt; query.value(&quot;name&quot;).toString();//第2列</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-</details>
-
-<details>
-    <summary>sqlite小型数据库</summary>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//头文件QT       += core gui sql</span><br><span class="line">//打印Qt支持的数据库驱动</span><br><span class="line"></span><br><span class="line">qDebug() &lt;&lt; QSqlDatabase::drivers();</span><br><span class="line"></span><br><span class="line">//添加sqlite数据库</span><br><span class="line">QSqlDatabase db = QSqlDatabase::addDatabase(&quot;QSQLITE&quot;);</span><br><span class="line"></span><br><span class="line">db.setDatabaseName(&quot;../info.db&quot;);</span><br><span class="line"></span><br><span class="line">//打开数据库,提示信息#include&lt;QMessageBox&gt;</span><br><span class="line">if(!db.open())</span><br><span class="line">&#123;</span><br><span class="line">    QMessageBox::warning(this,&quot;错误&quot;,db.lastError().text());</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//接下来操作同mysql</span><br></pre></td></tr></table></figure>
-
-</details>
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/06/qt-database/" data-id="ck9186e8u000880tsjfykbwez" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/07/各种栏及对话框/" data-id="ck9g35az7000894ts7f8gjbbx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -731,6 +707,10 @@
       <ul>
         
           <li>
+            <a href="/2020/04/25/布局/">布局</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/15/tcp/">tcp/udp</a>
           </li>
         
@@ -744,10 +724,6 @@
         
           <li>
             <a href="/2020/04/12/字符串/">字符串</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/11/查找/">查找</a>
           </li>
         
       </ul>
