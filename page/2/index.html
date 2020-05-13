@@ -62,6 +62,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-各种栏及对话框" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/07/各种栏及对话框/" class="article-date">
+  <time datetime="2020-04-06T16:29:41.000Z" itemprop="datePublished">2020-04-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>►<a class="article-category-link" href="/categories/工作/Qt/">Qt</a>►<a class="article-category-link" href="/categories/工作/Qt/窗体设计/">窗体设计</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/07/各种栏及对话框/">各种栏及对话框 </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="各种栏的创建方法"><a href="#各种栏的创建方法" class="headerlink" title="各种栏的创建方法"></a>各种栏的创建方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//菜单栏,menuBar()看f1</span><br><span class="line">QMenuBar *mBar = menuBar();</span><br><span class="line">//工具栏(菜单栏的快捷方式)</span><br><span class="line">QToolBar *toolBar = addToolBar(&quot;toolBar&quot;);</span><br><span class="line">//状态栏#include &lt;QStatusBar&gt;</span><br><span class="line">QStatusBar *sBar = statusBar();</span><br></pre></td></tr></table></figure>
+
+
+<details>
+    <summary>菜单栏，工具栏</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;mainwindow.h&quot;</span><br><span class="line">#include &lt;QPushButton&gt;</span><br><span class="line">//菜单栏</span><br><span class="line">#include &lt;QMenuBar&gt;</span><br><span class="line">#include &lt;QMenu&gt;</span><br><span class="line">#include &lt;QAction&gt;</span><br><span class="line">#include &lt;QtDebug&gt;</span><br><span class="line">//工具栏</span><br><span class="line">#include &lt;QToolBar&gt;</span><br><span class="line"></span><br><span class="line">MainWindow::MainWindow(QWidget *parent)</span><br><span class="line">    : QMainWindow(parent)</span><br><span class="line">&#123;</span><br><span class="line">    //菜单栏,menuBar()看f1</span><br><span class="line">    QMenuBar *mBar = menuBar();</span><br><span class="line">    //添加菜单</span><br><span class="line">    QMenu *pFile = mBar-&gt;addMenu(&quot;文件&quot;);</span><br><span class="line">    //添加菜单项(添加动作)</span><br><span class="line">    QAction *pNew = pFile-&gt;addAction(&quot;new&quot;);</span><br><span class="line"></span><br><span class="line">    connect(pNew, &amp;QAction::triggered,</span><br><span class="line">            [=]()</span><br><span class="line">            &#123;</span><br><span class="line">               qDebug() &lt;&lt; &quot;aaa&quot;;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">    pFile-&gt;addSeparator();//添加分割线</span><br><span class="line">    QAction *pOpen = pFile-&gt;addAction(&quot;open&quot;);</span><br><span class="line"></span><br><span class="line">    connect(pOpen,&amp;QAction::triggered,</span><br><span class="line">            [=]()</span><br><span class="line">            &#123;</span><br><span class="line">                qDebug() &lt;&lt; &quot;bbb&quot;;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line">    //工具栏(菜单栏的快捷方式)</span><br><span class="line">    QToolBar *toolBar = addToolBar(&quot;toolBar&quot;);</span><br><span class="line">    toolBar-&gt;addAction(pOpen);</span><br><span class="line">    //添加小控件</span><br><span class="line">    QPushButton *b = new QPushButton(this);</span><br><span class="line">    b-&gt;setText(&quot;^_^&quot;);</span><br><span class="line">    toolBar-&gt;addWidget(b);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MainWindow::~MainWindow()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+<details>
+    <summary>状态栏</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//状态栏#include &lt;QStatusBar&gt;</span><br><span class="line">QStatusBar *sBar = statusBar();</span><br><span class="line">//#include &lt;QLabel&gt;</span><br><span class="line">QLabel *label = new QLabel(this);</span><br><span class="line">label-&gt;setText(&quot;Normal&quot;);</span><br><span class="line">sBar-&gt;addWidget(label);</span><br><span class="line">sBar-&gt;addWidget(new QLabel(&quot;2233&quot;,this));</span><br><span class="line">//从右往左添加</span><br><span class="line">sBar-&gt;addPermanentWidget(new QLabel(&quot;yy&quot;,this));</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+    <summary>核心控件与浮动窗口</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//核心控件#include &lt;QTextEdit&gt;</span><br><span class="line">QTextEdit *textEdit = new QTextEdit(this);</span><br><span class="line">setCentralWidget(textEdit);</span><br><span class="line"></span><br><span class="line">//浮动窗口#include &lt;QDockWidget&gt;</span><br><span class="line">QDockWidget *dock = new QDockWidget(this);</span><br><span class="line">dock-&gt;setWidget(new QTextEdit(this));</span><br><span class="line">addDockWidget(Qt::RightDockWidgetArea, dock);</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+    <summary>模态与非模态对话框</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    QMenuBar *mBar = menuBar();</span><br><span class="line">    setMenuBar(mBar);//最好写上</span><br><span class="line">    QMenu *menu = mBar-&gt;addMenu(&quot;对话框&quot;);</span><br><span class="line"></span><br><span class="line">    QAction *p1 = menu-&gt;addAction(&quot;模态对话框&quot;);</span><br><span class="line">    //#include &lt;QDialog&gt;</span><br><span class="line">    connect(p1,&amp;QAction::triggered,</span><br><span class="line">            [=]()</span><br><span class="line">            &#123;</span><br><span class="line">               QDialog dlg;</span><br><span class="line">               dlg.exec();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    QAction *p2 = menu-&gt;addAction(&quot;非模态对话框&quot;);</span><br><span class="line">    //#include &lt;QDialog&gt;</span><br><span class="line">    connect(p2,&amp;QAction::triggered,</span><br><span class="line">            [=]()</span><br><span class="line">            &#123;</span><br><span class="line">//               //方法1(较麻烦)</span><br><span class="line">//               QDialog dlg;//设为成员变量，否则一闪而过</span><br><span class="line">//               dlg.show();</span><br><span class="line">//                //方法2(程序结束才释放，若多次按，会导致内存越用越少)</span><br><span class="line">//                QDialog *dlg = new QDialog(this);</span><br><span class="line">//                dlg-&gt;show();</span><br><span class="line">                 //方法3(不指定父对象，即不加this)(最推荐)</span><br><span class="line">                QDialog *dlg = new QDialog;</span><br><span class="line">                dlg-&gt;setAttribute(Qt::WA_DeleteOnClose);</span><br><span class="line">                dlg-&gt;show();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+    <summary>关于，问题，文件 对话框</summary>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">//标准对话框#include &lt;QMessageBox&gt;</span><br><span class="line">QAction *p3 = menu-&gt;addAction(&quot;关于/问题 对话框&quot;);</span><br><span class="line">//#include &lt;QDialog&gt;</span><br><span class="line">connect(p3,&amp;QAction::triggered,</span><br><span class="line">        [=]()</span><br><span class="line">        &#123;</span><br><span class="line">            QMessageBox::about(this,&quot;aaa&quot;,&quot;bbb&quot;);</span><br><span class="line">            int ret = QMessageBox::question(this,&quot;ccc&quot;,&quot;ddd&quot;);</span><br><span class="line">            // int ret = QMessageBox::question(this,&quot;ccc&quot;,&quot;ddd&quot;,</span><br><span class="line">            //                        QMessageBox::Ok|QMessageBox::Cancel);</span><br><span class="line">            switch(ret)</span><br><span class="line">            &#123;</span><br><span class="line">                case QMessageBox::Yes:</span><br><span class="line">                    qDebug() &lt;&lt; &quot;ok&quot;;</span><br><span class="line">                break;</span><br><span class="line">                case QMessageBox::No:</span><br><span class="line">                    qDebug() &lt;&lt; &quot;no&quot;;</span><br><span class="line">                break;</span><br><span class="line">                default:</span><br><span class="line">                break;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">//文件对话框#include &lt;QFileDialog&gt;</span><br><span class="line">QAction *p5 = menu-&gt;addAction(&quot;文件对话框&quot;);</span><br><span class="line">//#include &lt;QDialog&gt;</span><br><span class="line">connect(p5,&amp;QAction::triggered,</span><br><span class="line">        [=]()</span><br><span class="line">        &#123;</span><br><span class="line">            QString path = QFileDialog::getOpenFileName(</span><br><span class="line">                        this,</span><br><span class="line">                        &quot;open&quot;,</span><br><span class="line">                        &quot;../&quot;,//初始打开路径</span><br><span class="line">                        &quot;a(*.cpp *.h);;b(*.txt);;c(*.*)&quot;);//格式选择</span><br><span class="line">            qDebug() &lt;&lt; path;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+
+</details>
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/07/各种栏及对话框/" data-id="cka4y7480000efgts547r6v2u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-qt-database" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/06/qt-database/" class="article-date">
@@ -125,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/06/qt-database/" data-id="ck9g35az6000694tsksv12k8q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/06/qt-database/" data-id="cka4y747q0003fgtspwdwty4q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -211,12 +289,12 @@
 
 </details>
 
-<h3 id="内存回收机制：查看qt教程"><a href="#内存回收机制：查看qt教程" class="headerlink" title="内存回收机制：查看qt教程"></a>内存回收机制：查看qt教程</h3><p><a href="/resources/Qt教程.pdf">qt教程</a></p>
+<h3 id="内存回收机制：查看qt教程"><a href="#内存回收机制：查看qt教程" class="headerlink" title="内存回收机制：查看qt教程"></a>内存回收机制：查看qt教程</h3><p><a href="/resources/工作/Qt/Qt教程.pdf">qt教程</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/05/qt/" data-id="ck9g35az8000994tsmilbx9n6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/05/qt/" data-id="cka4y747r0004fgtskhelvf9x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -257,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/29/a/" data-id="ck9g35ayv000094tswo5lqone" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/29/a/" data-id="cka4y747m0001fgtsxc4v0g9h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -297,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/first/" data-id="ck9g35az3000494ts16wh51wv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/first/" data-id="cka4y747s0005fgtspblj590p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -350,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/17/hello-world/" data-id="ck9g35az4000594tsqsvkkkd1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/07/17/hello-world/" data-id="cka4y747t0007fgtsheguu5hm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -375,7 +453,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/">Qt</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/tcp-udp/">tcp/udp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/窗体设计/">窗体设计</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/">数据结构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/字符串/">字符串</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/查找/">查找</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/链表/">链表</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/练习/">练习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/">错误合集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/c/">c++</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/">Qt</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/tcp-udp/">tcp/udp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/基础/">基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/数据库/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/Qt/窗体设计/">窗体设计</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/">数据结构</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/字符串/">字符串</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/查找/">查找</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工作/数据结构/链表/">链表</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/待完成/">待完成</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/待完成/Qt/">Qt</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/练习/">练习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/">错误合集</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/错误合集/c/">c++</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -390,7 +468,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
     </div>
   </div>
 
@@ -401,6 +479,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/05/13/Qt待完成/">Qt待完成</a>
+          </li>
         
           <li>
             <a href="/2020/04/25/布局/">布局</a>
@@ -416,10 +498,6 @@
         
           <li>
             <a href="/2020/04/12/链表/">链表</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/12/字符串/">字符串</a>
           </li>
         
       </ul>
